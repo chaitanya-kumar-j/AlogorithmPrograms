@@ -17,9 +17,11 @@ namespace AlgorithmPrograms
             {
                 if(wordToSearch == word.ToLower())
                 {
+                    Console.WriteLine("The searched word is in file.");
                     return true;
                 }
             }
+            Console.WriteLine("The searched word is not in file.");
             return false;
         }
     }
