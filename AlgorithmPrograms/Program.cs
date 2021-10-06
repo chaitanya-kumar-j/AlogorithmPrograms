@@ -10,6 +10,7 @@ namespace AlgorithmPrograms
             bool IsRun = true;
             while (IsRun)
             {
+                string filePath = @"G:\BridgeLabz\AlogorithmPrograms\AlgorithmPrograms\ListOfWords.txt";
                 // Select Program number and enter
                 Console.WriteLine("Select and enter program number: " +
                     "(1. Search Word)");
@@ -17,7 +18,6 @@ namespace AlgorithmPrograms
                 switch (programOption)
                 {
                     case 1:
-                        string filePath = @"G:\BridgeLabz\AlogorithmPrograms\AlgorithmPrograms\ListOfWords.txt";
                         bool IsInList = new SearchWord().IsInList(filePath);
                         if (IsInList)
                         {
@@ -27,6 +27,9 @@ namespace AlgorithmPrograms
                         {
                             Console.WriteLine("The searched word is not in file.");
                         }
+                        break;
+                    case 2:
+                        new InsertionSort().InsertionSortWords(filePath);
                         break;
                     default:
                         IsRun = !IsRun;
