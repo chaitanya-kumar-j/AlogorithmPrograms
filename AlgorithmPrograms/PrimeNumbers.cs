@@ -23,7 +23,7 @@ namespace AlgorithmPrograms
             }
             return true;
         }
-        public void ListOfPrimes()
+        public List<int> ListOfPrimes()
         {
             Console.WriteLine("Enter the range of numbers.\nEnter the starting number in range: ");
             int lowest = Convert.ToInt32(Console.ReadLine());
@@ -51,6 +51,76 @@ namespace AlgorithmPrograms
             {
                 Console.Write(number+" ");
             }
+            return listOfPrimes;
+        }
+        public bool isAnagram(string word1, string word2)
+        {
+            if (word1.Length == word2.Length)
+            {
+                word2.ToCharArray();
+                string[] list1 = new string[word1.Length];
+                string[] list2 = new string[word2.Length];
+                int i = 0;
+                foreach (char cha in word1)
+                {
+                    list1[i] = Convert.ToString(cha);
+                    i++;
+                }
+                i = 0;
+                foreach (char cha in word2)
+                {
+                    list2[i] = Convert.ToString(cha);
+                    i++;
+                }
+                Array.Sort(list1);
+                Array.Sort(list2);
+                for (i = 0; i < word1.Length; i++)
+                {
+                    if (list1[i] != list2[i])
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+        public bool isPalindrome(string word)
+        {
+            string newWord = "";
+            foreach(char cha in word)
+            {
+                newWord = cha+newWord;
+            }
+            if (word == newWord)
+            {
+                return true;
+            }
+            return false;
+        }
+        public void PrimesWithPalindromeAndAnagram()
+        {
+            List<int> listOfPrimes = new PrimeNumbers().ListOfPrimes();
+            List<int> palindromeAndAnagramList = new List<int>();
+            Console.WriteLine("\nList of prime numbers that are anagram and palindrome are: ");
+            for (int i = 0;i<listOfPrimes.Count;i++)
+            {
+                for(int j = 1; j < listOfPrimes.Count; j++)
+                {
+                    if (i!=j && isAnagram(Convert.ToString(listOfPrimes[i]), Convert.ToString(listOfPrimes[j])))
+                    {
+                        if (isPalindrome(Convert.ToString(listOfPrimes[j])))
+                        {
+                            palindromeAndAnagramList.Add(listOfPrimes[i]);
+                            Console.WriteLine($"{listOfPrimes[i]} - {listOfPrimes[j]}");
+                        }
+                    }
+                }
+            }
+            //foreach(int prime in palindromeAndAnagramList)
+            //{
+            //    Console.Write(prime + " ");
+            //}
         }
     }
 }

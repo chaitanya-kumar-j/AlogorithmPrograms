@@ -15,7 +15,7 @@ namespace AlgorithmPrograms
                 // Select Program number and enter
                 Console.WriteLine("\nSelect and enter program number: " +
                     "(1. Search Word, 2. Insertion Sort, 3. Bubble sort, 4. Merge sort" +
-                    "5. Anagram detection, 6. List of primes)");
+                    "5. Anagram detection, 6. List of primes, 7. Prime numbers with palindrome and Anagram)");
                 int programOption = Convert.ToInt32(Console.ReadLine());
                 switch (programOption)
                 {
@@ -35,6 +35,9 @@ namespace AlgorithmPrograms
                         break;
                     case 6:
                         new PrimeNumbers().ListOfPrimes();
+                        break;
+                    case 7:
+                        new PrimeNumbers().PrimesWithPalindromeAndAnagram();
                         break;
                     default:
                         IsRun = !IsRun;
