@@ -11,19 +11,22 @@ namespace AlgorithmPrograms
         {
             int length = Math.Min(word1.Length, word2.Length);
             int i = 0;
-            while (i <= length)
+            while (i < length)
             {
                 if(word1.ToLower()[i] > word2.ToLower()[i])
                 {
                     return word1;
                 }
-                if(word2[i] > word1[i])
-                {
-                    return word2;
-                }
                 else
                 {
-                    i++;
+                    if (word2.ToLower()[i] > word1.ToLower()[i])
+                    {
+                        return word2;
+                    }
+                    else
+                    {
+                        i++;
+                    }
                 }
             }
             return null;

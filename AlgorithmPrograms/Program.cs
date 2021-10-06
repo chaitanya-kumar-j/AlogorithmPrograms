@@ -14,7 +14,7 @@ namespace AlgorithmPrograms
                 string numbersFilePath = @"G:\BridgeLabz\AlogorithmPrograms\AlgorithmPrograms\ListOfNumbers.txt";
                 // Select Program number and enter
                 Console.WriteLine("\nSelect and enter program number: " +
-                    "(1. Search Word, 2. Insertion Sort)");
+                    "(1. Search Word, 2. Insertion Sort, 3. Bubble sort, 4. Merge sort)");
                 int programOption = Convert.ToInt32(Console.ReadLine());
                 switch (programOption)
                 {
@@ -26,6 +26,9 @@ namespace AlgorithmPrograms
                         break;
                     case 3:
                         new BubbleSort().BubbleSortNumbers(numbersFilePath);
+                        break;
+                    case 4:
+                        new MergeSort().MergeSortWords(filePath);
                         break;
                     default:
                         IsRun = !IsRun;
